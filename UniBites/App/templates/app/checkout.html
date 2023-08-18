@@ -12,7 +12,7 @@
     </ul>
     <p>Total Price: ${{ total_price }}</p>
     <p>Note: {{ note }}</p>
-    <form method="post" action="{% url 'order_confirmation' %}">
+    <form method="post" action="{% url 'app:order_confirmation' %}">
         {% csrf_token %}
         <input type="hidden" name="cafe_id" value="{{ cafe.id }}">
         <input type="hidden" name="total_price" value="{{ total_price }}">
