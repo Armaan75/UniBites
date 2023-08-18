@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+<link rel="stylesheet" href="{% static 'app/styling.css' %}">
+</head>
+<body>
+<div class="header">
+  <img src="{% static 'app/logo.png'%}" alt="Logo" class="logo">
+  <a href="{% url 'account:login' %}">
+  <button class="login-button">Login</button></a>
+</div>
+<div class="container">
+  <div class="content-box">
+    <p class="description">Explore a world of culinary delights right at your fingertips. From your favourite local eateries to international cuisines, we've got it all. Place your orders hassle-free, track them in real-time, and indulge in a seamless food adventure. Whether it's a quick bite or a feast, we're here to make your dining dreams come true. Let's dive into a world of flavours together!"
+    </p>
+    <a href="#" class="cta-button">Order Now</a>
+  </div>
+</div>
+</body>
+</html>
