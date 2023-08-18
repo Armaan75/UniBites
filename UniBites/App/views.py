@@ -53,4 +53,4 @@ def order_confirmation(request):
         # send_order_confirmation_email(order)
 
         messages.success(request, 'Order placed successfully!')
-        return redirect('cafe_list')
+        return redirect('app:cafe_list')
