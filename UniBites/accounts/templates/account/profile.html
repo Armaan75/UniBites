@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'account/profile.css' %}">
+    <title>My Profile</title>
+</head>
+<body>
+    <div class="profile">
+        <img src="{% static 'account/profile-pic.jpg' %}" alt="Profile Picture">
+        <h1>John Doe</h1>
+        <p>Web Developer</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut nisl auctor, accumsan libero a, cursus quam.</p>
+        <a href="#">Main Page</a>
+    </div>
+</body>
+</html>

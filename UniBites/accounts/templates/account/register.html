@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'account/register.css' %}">
+  <title>Registration</title>
+</head>
+<body>
+  <div class="background-container">
+    <div class="logo-container">
+      <img src="{% static 'account/logo.png' %}" alt="Logo" class="logo">
+    </div>
+    <div class="order-now-container">
+      <button class="order-now-button">Order Now</button>
+    </div>
+    <div class="login-container">
+      <div class="login-box">
+        <div class="face-container">
+          <img src="{% static 'account/profile-pic.jpg' %}" alt="">
+        </div>
+        <h1 class="login-heading">Login</h1>
+        <form class="login-form">
+          <input type="text" placeholder="Name" name="first_name" class="login-input">
+          <input type="text" placeholder="Username" name="username" class="login-input">
+          <input type="email" placeholder="Email" name="email" class="login-input">
+          <input type="password" placeholder="Password" class="login-input">
+          <input type="password" placeholder="Confirm Password" name="confirm_password" class="login-input">
+          <br>
+          <button type="submit" class="login-button border-dark">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
