@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout - {{ cafe.name }}</title>
+</head>
+<body>
+    <h1>Checkout - {{ cafe.name }}</h1>
+    <ul>
+        {% for food_item in selected_food_items %}
+            <li>{{ food_item.name }} - ${{ food_item.price }}</li>
+        {% endfor %}
+    </ul>
+    <p>Total Price: ${{ total_price }}</p>
+    <p>Note: {{ note }}</p>
+    <form method="post" action="{% url 'order_confirmation' %}">
+        {% csrf_token %}
+        <input type="hidden" name="cafe_id" value="{{ cafe.id }}">
+        <input type="hidden" name="total_price" value="{{ total_price }}">
+        <button type="submit">Confirm Order</button>
+    </form>
+</body>
+</html>

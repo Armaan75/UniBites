@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food List - {{ cafe.name }}</title>
+</head>
+<body>
+    <h1>Food Items at {{ cafe.name }}</h1>
+    <ul>
+        {% for food_item in food_items %}
+            <li>
+                <input type="checkbox" name="food" value="{{ food_item.id }}">
+                {{ food_item.name }} - ${{ food_item.price }}
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="{% url 'checkout' cafe.id %}">
+        {% csrf_token %}
+        <textarea name="note" placeholder="Add a note"></textarea>
+        <button type="submit">Checkout</button>
+    </form>
+</body>
+</html>

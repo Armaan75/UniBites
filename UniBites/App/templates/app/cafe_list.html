@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe List</title>
+</head>
+<body>
+    <h1>Cafes</h1>
+    <ul>
+        {% for cafe in cafes %}
+            <li><a href="{% url 'food_list' cafe.id %}">{{ cafe.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
