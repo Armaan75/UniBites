@@ -21,7 +21,8 @@
           <img src="{% static 'account/profile-pic.jpg' %}" alt="">
         </div>
         <h1 class="login-heading">Login</h1>
-        <form class="login-form">
+        <form class="login-form" method="POST">
+          {% csrf_token %}
           <input type="text" placeholder="Username" name="username" class="login-input">
           <input type="password" placeholder="Password" name="password" class="login-input">
           
