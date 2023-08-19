@@ -1,3 +1,4 @@
+<!-- order_confirmation.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +6,10 @@
 </head>
 <body>
     <h1>Order Confirmation</h1>
-    <p>Your order has been placed successfully. Thank you!</p>
+    <p>Thank you for your order!</p>
+    <p>Order details:</p>
+    <p>Cafe: {{ order.cafe.name }}</p>
+    <p>Total Price: ${{ order.total_price }}</p>
+    <!-- Add more order details as needed -->
 </body>
 </html>
