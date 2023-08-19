@@ -23,10 +23,7 @@ def checkout(request, cafe_id):
     cafe = Cafe.objects.get(pk=cafe_id)
     selected_food_items = FoodItem.objects.filter(pk__in=selected_food_ids)
     total_price = sum(item.price for item in selected_food_items)
-    
-    print("Selected Food Items:", selected_food_items)
-    print("Total Price:", total_price)
-    # Pass data to the template
+
     context = {
         'cafe': cafe,
         'selected_food_items': selected_food_items,
