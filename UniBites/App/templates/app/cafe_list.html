@@ -1,14 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cafe List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+<link rel="stylesheet" href="{% static 'app/styles.css' %}">
 </head>
 <body>
-    <h1>Cafes</h1>
-    <ul>
-        {% for cafe in cafes %}
-            <li><a href="{% url 'app:food_list' cafe.id %}">{{ cafe.name }}</a></li>
-        {% endfor %}
-    </ul>
+<div class="header">
+  <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo">
+  <div class="profile-container">
+    <img src="{% static 'app/profile-pic.jpg' %}" alt="Profile Picture" class="profile-pic">
+    <button class="login-button">Login</button>
+  </div>
+</div>
+<div class="container">
+  <div class="content-box">
+    <h3>    <p class="description">Choose an outlet or Cafe
+    </p></h3>
+
+    <table>
+      <tr>
+        <th>Select</th>
+        <th>CheckBox</th>
+      </tr>
+      {% for cafe in cafes %}
+      <tr>
+        <td>{{cafe.name}}<td><a href="{% url 'app:food_list' cafe.id %}"><input type="checkbox"></a></td></td>
+      </tr>
+     {% endfor %}
+
+    </table>
+  </div>
+</div>
 </body>
 </html>
