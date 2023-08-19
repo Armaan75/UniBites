@@ -1,15 +1,30 @@
-<!-- order_confirmation.html -->
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Order Confirmation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+<link rel="stylesheet" href="{% static 'app/order.css' %}">
 </head>
 <body>
+<div class="header">
+  <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo">
+  <div class="profile-container">
+    <img src="{% static 'app/profile-pic.jpg' %}" alt="Profile Picture" class="profile-pic">
+    <button class="login-button">Login</button>
+  </div>
+</div>
+<div class="container">
+  <div class="content-box">
     <h1>Order Confirmation</h1>
     <p>Thank you for your order!</p>
     <p>Order details:</p>
     <p>Cafe: {{ order.cafe.name }}</p>
     <p>Total Price: ${{ order.total_price }}</p>
-    <!-- Add more order details as needed -->
+    <h3>The Confirmation Email has been sent</h3>
+
+  </div>
+</div>
 </body>
 </html>
