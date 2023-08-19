@@ -52,6 +52,7 @@ body {
 }
 
 .login-container {
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,7 +83,7 @@ body {
 }
 
 .login-input {
-  width: 200px; 
+  width: 300px; 
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;

@@ -23,10 +23,15 @@
         <h1 class="login-heading">Login</h1>
         <form class="login-form" method="POST">
           {% csrf_token %}
+          
           <input type="text" placeholder="Name" name="first_name" class="login-input">
+          <br>
           <input type="text" placeholder="Username" name="username" class="login-input">
+         <br>
           <input type="email" placeholder="Email" name="email" class="login-input">
-          <input type="password" placeholder="Password" class="login-input">
+         <br>
+          <input type="password" placeholder="Password" name="password" class="login-input">
+          <br>
           <input type="password" placeholder="Confirm Password" name="confirm_password" class="login-input">
           <br>
           <button type="submit" class="login-button border-dark">Register</button>
