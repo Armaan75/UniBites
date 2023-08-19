@@ -21,7 +21,9 @@
     </p></h3><br>
     <h3>    <p class="description">Select the Menu
     </p></h3>
-
+    
+    <form method="post" action="{% url 'app:checkout' cafe.id %}">
+      {% csrf_token %}
     <table>
       <tr>
         <th>Select</th>
@@ -30,17 +32,20 @@
         <th>Select</th>
 
       </tr>
+
+
       {% for food_item in food_items %}
       <tr>
         <td>{{ food_item.name }}<td>${{ food_item.price }}</td> <td><input type="checkbox" name="food" value="{{ food_item.id }}"></td></td>
       </tr>
      {% endfor %}
+   
     </table>
-    <form method="post" action="{% url 'app:checkout' cafe.id %}">
-        {% csrf_token %}
-        <textarea name="note" placeholder="Add a note"></textarea>
-        <button type="submit">Checkout</button>
-    </form>
+    <textarea name="note" placeholder="Add a note"></textarea>
+    <button type="submit">Checkout</button>
+</form>
+    
+        
   </div>
 </div>
 </body>

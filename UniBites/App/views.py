@@ -17,13 +17,25 @@ def food_list(request, cafe_id):
     return render(request, 'app/food_list.html', {'cafe': cafe, 'food_items': food_items})
 
 def checkout(request, cafe_id):
-    if request.method == 'POST':
-        selected_food_ids = request.POST.getlist('food')
-        note = request.POST.get('note', '')
-        cafe = Cafe.objects.get(pk=cafe_id)
-        selected_food_items = FoodItem.objects.filter(pk__in=selected_food_ids)
-        total_price = sum(item.price for item in selected_food_items)
-        return render(request, 'app/checkout.html', {'cafe': cafe, 'selected_food_items': selected_food_items, 'total_price': total_price, 'note': note})
+    
+    selected_food_ids = request.POST.getlist('food')
+    note = request.POST.get('note', '')
+    cafe = Cafe.objects.get(pk=cafe_id)
+    selected_food_items = FoodItem.objects.filter(pk__in=selected_food_ids)
+    total_price = sum(item.price for item in selected_food_items)
+    
+    print("Selected Food Items:", selected_food_items)
+    print("Total Price:", total_price)
+    # Pass data to the template
+    context = {
+        'cafe': cafe,
+        'selected_food_items': selected_food_items,
+        'total_price': total_price,
+        'note': note,
+    }
+    return render(request, 'app/checkout.html', context)
+   
+
 
 
 
