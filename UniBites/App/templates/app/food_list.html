@@ -1,24 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Food List - {{ cafe.name }}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{cafe.name}}</title>
+<link rel="stylesheet" href="{% static 'app/style.css' %}">
 </head>
 <body>
-    <h1>Food Items at {{ cafe.name }}</h1>
-    <ul>
-        {% for food_item in food_items %}
-            <li>
-                <input type="checkbox" name="food" value="{{ food_item.id }}">
-                {{ food_item.name }} - ${{ food_item.price }}
-            </li>
-        {% endfor %}
-    </ul>
+<div class="header">
+  <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo">
+  <div class="profile-container">
+    <img src="{% static 'app/profile-pic.jpg' %}" alt="Profile Picture" class="profile-pic">
+    <button class="login-button">Login</button>
+  </div>
+</div>
+<div class="container">
+  <div class="content-box">
+    <h3>    <p class="description">You choosed The Cafe: {{cafe.name}}
+    </p></h3><br>
+    <h3>    <p class="description">Select the Menu
+    </p></h3>
+
+    <table>
+      <tr>
+        <th>Select</th>
+        <th>Select</th>
+
+        <th>Select</th>
+
+      </tr>
+      {% for food_item in food_items %}
+      <tr>
+        <td>{{ food_item.name }}<td>${{ food_item.price }}</td> <td><input type="checkbox" name="food" value="{{ food_item.id }}"></td></td>
+      </tr>
+     {% endfor %}
+    </table>
     <form method="post" action="{% url 'app:checkout' cafe.id %}">
         {% csrf_token %}
         <textarea name="note" placeholder="Add a note"></textarea>
         <button type="submit">Checkout</button>
     </form>
+  </div>
+</div>
 </body>
 </html>
-
 
