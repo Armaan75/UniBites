@@ -10,10 +10,10 @@
 <body>
     <div class="profile">
         <img src="{% static 'account/profile-pic.jpg' %}" alt="Profile Picture">
-        <h1>John Doe</h1>
-        <p>Web Developer</p>
+        <h1>{{user.username}}</h1>
+        <p>{{user.username}}</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut nisl auctor, accumsan libero a, cursus quam.</p>
-        <a href="#">Main Page</a>
+        <a href="{% url 'app:home' %}">Main Page</a>
     </div>
 </body>
 </html>

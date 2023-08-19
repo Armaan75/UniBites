@@ -18,7 +18,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('account:register')
+            return redirect('account:profile')
         else:
             return redirect('account:login')
     return render(request, 'account/login.html')

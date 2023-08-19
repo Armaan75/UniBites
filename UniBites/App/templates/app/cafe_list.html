@@ -12,7 +12,7 @@
   <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo">
   <div class="profile-container">
     <img src="{% static 'app/profile-pic.jpg' %}" alt="Profile Picture" class="profile-pic">
-    <button class="login-button">Login</button>
+    <button class="login-button">{{user.username}}</button>
   </div>
 </div>
 <div class="container">
