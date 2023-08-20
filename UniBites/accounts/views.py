@@ -7,10 +7,6 @@ from .models import User
 from django.views.generic import UpdateView
 from .forms import ProfileForm
 
-
-def home(request):
-    return render(request, 'account/home.html')
-
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
