@@ -1,5 +1,3 @@
-# views.py
-
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Cafe, FoodItem, Order, Payment
@@ -86,7 +84,7 @@ def order_confirmation(request, order_id):
     total_price = sum(item.price for item in selected_food_items)
 
     subject = 'Order Confirmation'
-    message = f'Hello {order.user.username}, your order has been placed successfully.\n\nOrder details:\nCafe: {order.cafe.name}\nTotal Price: ${order.total_price}\n\nThank you for your order!'
+    message = f'Hello {order.user.username}, your order has been placed successfully.\n\nOrder details:\nCafe: {order.cafe.name}\nTotal Price: ${total_price}\n\nThank you for your order!'
     from_email = settings.DEFAULT_FROM_EMAIL
     recipient_list = [order.user.email]
 

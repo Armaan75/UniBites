@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Cafe, FoodItem, Order
+from .models import Cafe, FoodItem, Order, Payment
 
 
+admin.site.register(Payment)
 
 @admin.register(Cafe)
 class CafeAdmin(admin.ModelAdmin):
