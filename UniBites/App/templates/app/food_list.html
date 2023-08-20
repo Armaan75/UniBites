@@ -27,7 +27,7 @@
     <h3>    <p class="description">Select from Menu
     </p></h3>
     
-    <form method="post" action="{% url 'app:checkout' cafe.id %}">
+    <form method="post" action="{% url 'app:make_payment' cafe.id %}">
       {% csrf_token %}
     <table>
       <tr>

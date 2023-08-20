@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from .models import Cafe, FoodItem, Order
+from .models import Cafe, FoodItem, Order, Payment
 from django.shortcuts import render, redirect
 from django.contrib import messages
+
+from .forms import PaymentForm
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -18,6 +20,32 @@ def food_list(request, cafe_id):
     cafe = Cafe.objects.get(pk=cafe_id)
     food_items = FoodItem.objects.filter(cafe=cafe)
     return render(request, 'app/food_list.html', {'cafe': cafe, 'food_items': food_items})
+
+
+def make_payment(request, order_id):
+    order = Order.objects.get(pk=order_id)
+
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+
+        if form.is_valid():
+            # Dummy payment process: Create a payment record
+            payment = Payment.objects.create(
+                user=request.user,
+                order=order,
+                amount=order.total_price  # In a real system, this would be the actual payment amount
+            )
+
+            # Mark the order as paid (you can add a field in the Order model for this)
+            order.paid = True
+            order.save()
+
+            return redirect('app:order_confirmation', order_id=order_id)
+    else:
+        form = PaymentForm()
+
+    return render(request, 'app/payment.html', {'form': form, 'order': order})
+
 
 
 def checkout(request, cafe_id):
@@ -48,6 +76,7 @@ def checkout(request, cafe_id):
 
 
 
+
 def order_confirmation(request, order_id):
     try:
         order = Order.objects.get(pk=order_id)
@@ -63,3 +92,5 @@ def order_confirmation(request, order_id):
     send_mail(subject, message, from_email, recipient_list, fail_silently=True)
 
     return render(request, 'app/order_confirmation.html', {'order': order})
+
+
