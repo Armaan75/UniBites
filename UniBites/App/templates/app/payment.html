@@ -8,6 +8,7 @@
     <title>Payment</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
 <div class="container">
@@ -16,7 +17,7 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title text-center">Payment Processing</h2>
-                    <form method="post"> 
+                    <form method="post" novalidate> 
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="PaymentAmount">Amount</label>
@@ -24,7 +25,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$</span>
                                 </div>
-                                <input type="text" class="form-control" value="{{total_price}}" disabled>
+                                <input type="text" class="form-control" value="{{total_price}}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
@@ -46,8 +47,15 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+    // Validation logic here
+    if (!validateCardNumber() || !validateExpirationDate() || !validateCVV()) {
+        event.preventDefault(); // Prevent form submission
+        // Display error messages or styles here
+    }
+});
+</script>
 
 </body>
 </html>
