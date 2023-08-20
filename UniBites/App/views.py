@@ -18,33 +18,7 @@ def food_list(request, cafe_id):
     return render(request, 'app/food_list.html', {'cafe': cafe, 'food_items': food_items})
 
 def checkout(request, cafe_id):
-    if request.method == 'POST':
-        selected_food_ids = request.POST.getlist('food')
-        note = request.POST.get('note', '')
-        cafe = Cafe.objects.get(pk=cafe_id)
-        selected_food_items = FoodItem.objects.filter(pk__in=selected_food_ids)
-        
-        # Calculate the total price
-        total_price = sum(item.price for item in selected_food_items)
-
-        order = Order.objects.create(
-            user=request.user,  
-            cafe=cafe,
-            total_price=total_price,
-        )
-        order.items.set(selected_food_items)
-
-        # Send the order confirmation email
-        subject = 'Order Confirmation'
-        message = f'Hello {request.user.username}, your order has been placed successfully.\n\nOrder details:\nCafe: {cafe.name}\nTotal Price: ${total_price}\n\nThank you for your order!'
-        from_email = settings.DEFAULT_FROM_EMAIL
-        recipient_list = [request.user.email]
-        
-        send_mail(subject, message, from_email, recipient_list, fail_silently=True)
-
-        return render(request, 'app/order_confirmation.html', {'user': request.user, 'order': order, 'total_price': total_price})
-    else:
-        return redirect('app:cafe_list')
+    return render(request, 'app/order_confirmation.html')
 
 def make_payment(request, order_id):
     order = Order.objects.get(pk=order_id)
@@ -58,18 +32,16 @@ def make_payment(request, order_id):
         form = PaymentForm(request.POST)
 
         if form.is_valid():
-            # Dummy payment process: Create a payment record
             payment = Payment.objects.create(
                 user=request.user,
                 order=order,
-                amount=order.total_price  # In a real system, this would be the actual payment amount
+                amount=order.total_price 
             )
 
-            # Mark the order as paid (you can add a field in the Order model for this)
             order.paid = True
             order.save()
 
-            return redirect('app:order_confirmation', order_id=order_id)
+            return redirect('app:lastpage')
     else:
         form = PaymentForm()
 
@@ -91,3 +63,7 @@ def order_confirmation(request, order_id):
     send_mail(subject, message, from_email, recipient_list, fail_silently=True)
 
     return render(request, 'app/order_confirmation.html', {'order': order, 'total_price': total_price})
+
+
+def lastpage(request):
+    return render(request, 'app/lastpage.html')

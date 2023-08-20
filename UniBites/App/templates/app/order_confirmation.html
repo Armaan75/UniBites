@@ -4,7 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing Page</title>
+<title>Order Confirmation</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <link rel="stylesheet" href="{% static 'app/order.css' %}">
 </head>
 <body>
@@ -30,6 +32,13 @@
 
     <p>Total Price: ${{ total_price }}</p>
     <h3>The Confirmation Email has been sent</h3>
+    
+    <form method="post" action="{% url 'app:make_payment' order.id %}">
+      {% csrf_token %}
+      
+      <button type="submit" class="btn btn-primary">Click to Payment</button>
+  </form>
+  
 
   </div>
 </div>

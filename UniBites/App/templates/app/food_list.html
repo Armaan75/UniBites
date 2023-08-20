@@ -22,12 +22,12 @@
   </div>
 <div class="container">
   <div class="content-box">
-    <h3>    <p class="description">You choosed The Cafe: {{cafe.name}}
+    <h3>    <p class="description">You choosed The Cafe: {{order.cafe.name}}
     </p></h3><br>
     <h3>    <p class="description">Select from Menu
     </p></h3>
     
-    <form method="post" action="{% url 'app:make_payment' cafe.id %}">
+    <form method="post" action="{% url 'app:order_confirmation' cafe.id %}">
       {% csrf_token %}
     <table>
       <tr>
