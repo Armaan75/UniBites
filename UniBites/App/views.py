@@ -22,29 +22,6 @@ def food_list(request, cafe_id):
     return render(request, 'app/food_list.html', {'cafe': cafe, 'food_items': food_items})
 
 
-def make_payment(request, order_id):
-    order = Order.objects.get(pk=order_id)
-
-    if request.method == 'POST':
-        form = PaymentForm(request.POST)
-
-        if form.is_valid():
-            # Dummy payment process: Create a payment record
-            payment = Payment.objects.create(
-                user=request.user,
-                order=order,
-                amount=order.total_price  # In a real system, this would be the actual payment amount
-            )
-
-            # Mark the order as paid (you can add a field in the Order model for this)
-            order.paid = True
-            order.save()
-
-            return redirect('app:order_confirmation', order_id=order_id)
-    else:
-        form = PaymentForm()
-
-    return render(request, 'app/payment.html', {'form': form, 'order': order})
 
 
 
@@ -94,3 +71,28 @@ def order_confirmation(request, order_id):
     return render(request, 'app/order_confirmation.html', {'order': order})
 
 
+
+def make_payment(request, order_id):
+    order = Order.objects.get(pk=order_id)
+    
+
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+
+        if form.is_valid():
+            # Dummy payment process: Create a payment record
+            payment = Payment.objects.create(
+                user=request.user,
+                order=order,
+                amount=order.total_price  # In a real system, this would be the actual payment amount
+            )
+
+            # Mark the order as paid (you can add a field in the Order model for this)
+            order.paid = True
+            order.save()
+
+            return redirect('app:order_confirmation', order_id=order_id)
+    else:
+        form = PaymentForm()
+
+    return render(request, 'app/payment.html', {'form': form, 'order': order})
