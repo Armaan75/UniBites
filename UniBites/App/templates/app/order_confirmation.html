@@ -8,13 +8,18 @@
 <link rel="stylesheet" href="{% static 'app/order.css' %}">
 </head>
 <body>
-<div class="header">
-  <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo">
-  <div class="profile-container">
-    <img src="{% static 'app/profile-pic.jpg' %}" alt="Profile Picture" class="profile-pic">
-    <button class="login-button">Login</button>
+  <div class="header">
+    <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo">
+    <div class="profile-container">
+      {% if user.profile_image %}
+      <img src="{{user.profile_image.url}}" alt="Profile Picture" class="profile-pic">
+      {% else %}
+      <img src="{% static 'app/profile-pic.jpg' %}" alt="Profile Picture" class="profile-pic">
+  
+      {% endif %}
+      <button class="login-button">{{user.first_name}}</button>
+    </div>
   </div>
-</div>
 <div class="container">
   <div class="content-box">
     <h1>Order Confirmation</h1>
