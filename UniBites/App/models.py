@@ -28,8 +28,8 @@ class Order(models.Model):
 
 
 class Payment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=None, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_DEFAULT, default=None, null=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     timestamp = models.DateTimeField(auto_now_add=True)
     

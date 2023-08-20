@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Cafe, FoodItem, Order, Payment
+from .models import Cafe, FoodItem, Order
+
+
 
 @admin.register(Cafe)
 class CafeAdmin(admin.ModelAdmin):
@@ -14,9 +16,3 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('user', 'cafe', 'timestamp')
 
 
-class PaymentAdmin(admin.ModelAdmin):
-    list_display = ('user', 'order', 'amount', 'timestamp')
-    list_filter = ('timestamp',)
-    search_fields = ('user__username', 'order__id')
-
-admin.site.register(Payment, PaymentAdmin)
