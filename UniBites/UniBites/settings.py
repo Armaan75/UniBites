@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
    'App.apps.AppConfig',
    'accounts.apps.AccountsConfig',
+
+   'crispy_forms',
+   'crispy_bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -135,6 +138,9 @@ AUTH_USER_MODEL = 'accounts.User'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

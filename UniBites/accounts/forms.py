@@ -19,3 +19,4 @@ class ProfileForm(forms.ModelForm):
          'profile_image': forms.FileInput(attrs={'class': 'fileUpload'})
        }
 
+

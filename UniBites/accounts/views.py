@@ -54,7 +54,7 @@ def logout(request):
 
 class Profile(UpdateView):
     model = User
-    template_name = 'account/profile.html'
+    template_name = 'account/profile_update.html'
     form_class = ProfileForm
     success_url = reverse_lazy('account:profile')
     def get_object(self):
@@ -66,3 +66,5 @@ class Profile(UpdateView):
             'user': self.request.user
         })
         return kwargs
+
+

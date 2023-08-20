@@ -1,0 +1,80 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>Profile</title>
+</head>
+<body>
+    <br><br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 ">
+		     <div class="list-group ">
+              <a href="{% url 'account:profile' %}" class="list-group-item list-group-item-action active">Dashboard</a>
+              <a href="" class="list-group-item list-group-item-action">Logout</a>
+              <a href="{% url 'app:home' %}" class="list-group-item list-group-item-action">Main Page</a>
+              <img class="mt-5" src="{% if user.profile_image %}{{ user.profile_image.url }}{% else %}/path_to_default_image.jpg{% endif %}" alt="Profile Image">
+            </div> 
+		</div>
+		<div class="col-md-9">
+		    <div class="card">
+		        <div class="card-body">
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <h4>Your Profile</h4>
+		                    <hr>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-md-12">
+                            <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                                <div class="form-group row">
+                                <div class="col-8">
+                                    {{form.username|as_crispy_field}}                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <div class="col-8">
+                                    {{form.email|as_crispy_field}}
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <div class="col-8">
+                                    {{form.first_name|as_crispy_field}}
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <div class="col-8">
+                                    {{form.profile_image|as_crispy_field}}
+                                </div>
+                              </div>
+                            
+                             
+                              <div class="form-group row">
+                                <div class="offset-4 col-8">
+                                  <button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>
+                                </div>
+                              </div>
+                            </form>
+                           
+		                </div>
+		            </div>
+		            
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+
+
