@@ -32,12 +32,17 @@
       </tr>
       {% for food_item in food_items %}
       <tr>
+        
         <td>{{ food_item.name }}<td>${{ food_item.price }}</td> <td><input type="checkbox" name="food" value="{{ food_item.id }}"></td></td>
       </tr>
      {% endfor %}
     </table>
+    {% if foot_item %}
     <textarea name="note" placeholder="Add a note"></textarea>
     <button type="submit">Checkout</button>
+    {% else %}
+    <h4>Soon foods will be Listed</h4>
+    {% endif %}
 </form>  
   </div>
 </div>
