@@ -71,12 +71,12 @@ body {
   
   .content-box {
     width: 600px;
-    height: 200px;
+    height: 500px;
     background-color: #2CB087;
-    padding: 40px;
+    padding: 30px;
     text-align: center;
     border-radius: 10px;
-    margin-top: 180px;
+    margin-top: -40px;
   }
   
   
