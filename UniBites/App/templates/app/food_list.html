@@ -19,33 +19,26 @@
   <div class="content-box">
     <h3>    <p class="description">You choosed The Cafe: {{cafe.name}}
     </p></h3><br>
-    <h3>    <p class="description">Select the Menu
+    <h3>    <p class="description">Select from Menu
     </p></h3>
     
     <form method="post" action="{% url 'app:checkout' cafe.id %}">
       {% csrf_token %}
     <table>
       <tr>
+        <th>Food Name</th>
+        <th>Price</th>
         <th>Select</th>
-        <th>Select</th>
-
-        <th>Select</th>
-
       </tr>
-
-
       {% for food_item in food_items %}
       <tr>
         <td>{{ food_item.name }}<td>${{ food_item.price }}</td> <td><input type="checkbox" name="food" value="{{ food_item.id }}"></td></td>
       </tr>
      {% endfor %}
-   
     </table>
     <textarea name="note" placeholder="Add a note"></textarea>
     <button type="submit">Checkout</button>
-</form>
-    
-        
+</form>  
   </div>
 </div>
 </body>

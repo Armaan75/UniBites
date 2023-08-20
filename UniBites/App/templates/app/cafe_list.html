@@ -11,7 +11,12 @@
 <div class="header">
   <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo">
   <div class="profile-container">
+    {% if user.profile_image %}
+    <img src="{{user.profile_image}}" alt="Profile Picture" class="profile-pic">
+    {% else %}
     <img src="{% static 'app/profile-pic.jpg' %}" alt="Profile Picture" class="profile-pic">
+
+    {% endif %}
     <button class="login-button">{{user.username}}</button>
   </div>
 </div>
@@ -22,8 +27,8 @@
 
     <table>
       <tr>
+        <th>Cafe Name</th>
         <th>Select</th>
-        <th>CheckBox</th>
       </tr>
       {% for cafe in cafes %}
       <tr>
