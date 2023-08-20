@@ -18,7 +18,12 @@
 		<div class="col-md-3 ">
 		     <div class="list-group ">
               <a href="{% url 'account:profile' %}" class="list-group-item list-group-item-action active">Dashboard</a>
-              <a href="" class="list-group-item list-group-item-action">Logout</a>
+
+              <a href="javascript:{document.getElementById('logout').submit()}" class="list-group-item list-group-item-action">Logout</a>
+              <form action="{% url 'account:logout' %}" id='logout' method="POST"> 
+                  {% csrf_token %}
+                  <input type="hidden">
+              </form>
               <a href="{% url 'app:home' %}" class="list-group-item list-group-item-action">Main Page</a>
               <img class="mt-5" src="{% if user.profile_image %}{{ user.profile_image.url }}{% else %}/path_to_default_image.jpg{% endif %}" alt="Profile Image">
             </div> 
