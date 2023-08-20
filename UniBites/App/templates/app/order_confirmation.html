@@ -9,7 +9,8 @@
 </head>
 <body>
   <div class="header">
-    <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo">
+    <a href="{% url 'app:home' %}">
+    <img src="{% static 'app/logo.png' %}" alt="Logo" class="logo"></a>
     <div class="profile-container">
       {% if user.profile_image %}
       <img src="{{user.profile_image.url}}" alt="Profile Picture" class="profile-pic">

@@ -10,10 +10,8 @@
 <body>
   <div class="background-container">
     <div class="logo-container">
-      <img src="{% static 'account/logo.png' %}" alt="Logo" class="logo">
-    </div>
-    <div class="order-now-container">
-      <button class="order-now-button">Order Now</button>
+      <a href="{% url 'app:home' %}">
+      <img src="{% static 'account/logo.png' %}" alt="Logo" class="logo"></a>
     </div>
     <div class="login-container">
       <div class="login-box">
@@ -27,7 +25,11 @@
           <input type="password" placeholder="Password" name="password" class="login-input">
           
           <button type="submit" class="login-button border-dark">Login</button>
+                 
         </form>
+        <br>
+        <a href="{% url 'account:register' %}"><button type="submit" class="login-button border-dark">Register</button></a>
+
       </div>
     </div>
   </div>

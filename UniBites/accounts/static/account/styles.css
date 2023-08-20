@@ -30,8 +30,8 @@ body {
 }
 
 .logo {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: auto;
   margin-right: 10px;
   margin-bottom: 10px;
 }

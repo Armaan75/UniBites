@@ -10,17 +10,15 @@
 <body>
   <div class="background-container">
     <div class="logo-container">
-      <img src="{% static 'account/logo.png' %}" alt="Logo" class="logo">
-    </div>
-    <div class="order-now-container">
-      <button class="order-now-button">Order Now</button>
+      <a href="{% url 'app:home' %}">
+      <img src="{% static 'account/logo.png' %}" alt="Logo" class="logo"></a>
     </div>
     <div class="login-container">
       <div class="login-box">
         <div class="face-container">
           <img src="{% static 'account/profile-pic.jpg' %}" alt="">
         </div>
-        <h1 class="login-heading">Login</h1>
+        <h1 class="login-heading">Register</h1>
         <form class="login-form" method="POST">
           {% csrf_token %}
           
@@ -36,6 +34,10 @@
           <br>
           <button type="submit" class="login-button border-dark">Register</button>
         </form>
+        <br>
+       <a href="{% url 'account:login' %}">
+        <button type="submit" class="login-button border-dark">login</button>
+      </a>
       </div>
     </div>
   </div>
