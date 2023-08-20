@@ -9,7 +9,11 @@
 </head>
 <body>
     <div class="profile">
+        {% if user.profile_image %}
+        <img src="{{profile_image.url}}" alt="Profile Picture">
+        {% else %}
         <img src="{% static 'account/profile-pic.jpg' %}" alt="Profile Picture">
+        {% endif %}
         <h1>{{user.username}}</h1>
         <p>{{user.username}}</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut nisl auctor, accumsan libero a, cursus quam.</p>
