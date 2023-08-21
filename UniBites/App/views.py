@@ -22,6 +22,7 @@ def checkout(request, cafe_id):
 
 def make_payment(request, order_id):
     order = Order.objects.get(pk=order_id)
+    
     selected_food_ids = request.POST.getlist('food')
     note = request.POST.get('note', '')
 
@@ -49,6 +50,7 @@ def make_payment(request, order_id):
 
 def order_confirmation(request, order_id):
     order = Order.objects.get(pk=order_id)
+    
     selected_food_ids = request.POST.getlist('food')
     note = request.POST.get('note', '')
 
