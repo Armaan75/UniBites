@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Cafe, FoodItem, Order, Payment
 from .forms import PaymentForm
@@ -49,7 +49,10 @@ def make_payment(request, order_id):
     return render(request, 'app/payment.html', {'form': form, 'order': order, 'total_price': total_price})
 
 def order_confirmation(request, order_id):
-    order = Order.objects.get(pk=order_id)
+    order = get_object_or_404(Order, pk=order_id)
+
+    # Rest of your view logic
+    total_price = order.total_price
     
     selected_food_ids = request.POST.getlist('food')
     note = request.POST.get('note', '')
