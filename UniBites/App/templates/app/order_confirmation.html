@@ -30,7 +30,7 @@
     <p>Order details:</p>
     <p>Cafe: {{ order.cafe.name }}</p>
 
-    <p>Total Price: ${{ total_price }}</p>
+    <p>Total Price: £{{ total_price }}</p>
     <h3>The Confirmation Email has been sent</h3>
     
     <form method="post" action="{% url 'app:make_payment' order.id %}">

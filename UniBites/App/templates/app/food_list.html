@@ -38,7 +38,7 @@
       {% for food_item in food_items %}
       <tr>
         
-        <td>{{ food_item.name }}<td>${{ food_item.price }}</td> <td><input type="checkbox" name="food" value="{{ food_item.id }}"></td></td>
+        <td>{{ food_item.name }}<td>£{{ food_item.price }}</td> <td><input type="checkbox" name="food" value="{{ food_item.id }}"></td></td>
       </tr>
      {% endfor %}
     </table>
