@@ -77,8 +77,8 @@ body {
   
   table {
     border-collapse: collapse;
-    width: 100%;
-    max-width: 300px;
+    width: 500px;
+    max-width: 800px;
     margin: auto;
   }
   

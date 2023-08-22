@@ -32,7 +32,7 @@
       </tr>
       {% for cafe in cafes %}
       <tr>
-        <td>{{cafe.name}}<td><a href="{% url 'app:food_list' cafe.id %}"><input type="checkbox"></a></td></td>
+        <td>{{cafe.name}}<td><a href="{% url 'app:food_list' cafe.id %}"><input type="checkbox" style="height: 50px; width: 50px;"></a></td></td>
       </tr>
      {% endfor %}
 
