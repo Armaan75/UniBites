@@ -31,7 +31,9 @@
 </div>
 <div class="container">
   <div class="content-box">
-    <p class="description">Explore a world of culinary delights right at your fingertips. From your favourite local eateries to international cuisines, we've got it all. Place your orders hassle-free, track them in real-time, and indulge in a seamless food adventure. Whether it's a quick bite or a feast, we're here to make your dining dreams come true. Let's dive into a world of flavours together!"
+    <p class="description">Welcome to UniBites- A streamlined campus food ordering experience.
+Explore a world of culinary delights right at your fingertips. From your favourite local eateries to international cuisines, we've got it all. Place your orders hassle-free, track them in real-time, and indulge in a seamless food adventure. Whether it's a quick bite or a feast, we're here to make your dining dreams come true. Let's dive into a world of flavours together!"
+
     </p>
     {% if user.is_authenticated %}
 
@@ -39,7 +41,7 @@
 
     {% else %}
 
-    <a href="{% url 'account:login' %}" class="cta-button">Just Login for Ordering</a>
+    <a href="{% url 'account:login' %}" class="cta-button">Click to Order</a>
     
 
     {% endif %}

@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
 from .models import Cafe, FoodItem, Order, Payment
 from .forms import PaymentForm
 from django.core.mail import send_mail
@@ -10,7 +9,8 @@ def home(request):
 
 def cafe_list(request):
     cafes = Cafe.objects.all()
-    return render(request, 'app/cafe_list.html', {'cafes': cafes})
+    selected_cafe_id = 1  # Replace this with the actual selected cafe's ID
+    return render(request, 'app/cafe_list.html', {'cafes': cafes, 'selected_cafe_id': selected_cafe_id})
 
 def food_list(request, cafe_id):
     cafe = Cafe.objects.get(pk=cafe_id)
@@ -72,3 +72,8 @@ def order_confirmation(request, order_id):
 
 def lastpage(request):
     return render(request, 'app/lastpage.html')
+
+def food_list(request, cafe_id):
+    cafe = get_object_or_404(Cafe, pk=cafe_id)
+    food_items = FoodItem.objects.filter(cafe=cafe)
+    return render(request, 'app/food_list.html', {'cafe': cafe, 'food_items': food_items})
