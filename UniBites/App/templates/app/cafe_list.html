@@ -15,15 +15,15 @@
     <img src="{{user.profile_image.url}}" alt="Profile Picture" class="profile-pic">
     {% else %}
     <img src="{% static 'app/profile-pic.jpg' %}" alt="Profile Picture" class="profile-pic">
-
     {% endif %}
     <button class="login-button">{{user.first_name}}</button>
   </div>
 </div>
 <div class="container">
   <div class="content-box">
-    <h3>    <p class="description">Choose an outlet or Cafe
-    </p></h3>
+    <h3>
+      <p class="description">Choose an outlet or Cafe</p>
+    </h3>
 
     <table>
       <tr>
@@ -32,14 +32,17 @@
       </tr>
       {% for cafe in cafes %}
       <tr>
-        <td>{{cafe.name}}<td><a href="{% url 'app:food_list' cafe.id %}"><input type="checkbox" style="height: 50px; width: 50px;"></a></td></td>
+        <td>{{cafe.name}}</td>
+        <td>
+          <a href="{% url 'app:food_list' cafe.id %}">
+            <button class="select-button">Select</button>
+          </a>
+        </td>
       </tr>
-     {% endfor %}
-
+      {% endfor %}
     </table>
     <a href="{% url 'app:food_list' selected_cafe_id %}" class="next-button">Next</a>
   </div>
 </div>
-
 </body>
 </html>
