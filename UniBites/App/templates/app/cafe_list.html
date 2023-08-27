@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Landing Page</title>
 <link rel="stylesheet" href="{% static 'app/styles.css' %}">
+</style>
 </head>
 <body>
 <div class="header">
@@ -22,9 +23,8 @@
 <div class="container">
   <div class="content-box">
     <h3>
-      <p class="description">Choose an outlet or Cafe</p>
+      <p class="description">Please select one of the options below:</p>
     </h3>
-
     <table>
       <tr>
         <th>Cafe Name</th>
@@ -41,7 +41,7 @@
       </tr>
       {% endfor %}
     </table>
-    <a href="{% url 'app:food_list' selected_cafe_id %}" class="next-button">Next</a>
+    <img src="{% static 'app/Roe-map.png' %}" alt="Map Image" class="map-image">
   </div>
 </div>
 </body>

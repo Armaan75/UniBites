@@ -6,33 +6,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Landing Page</title>
 <link rel="stylesheet" href="{% static 'app/styling.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Abadi:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="header">
   <a href="{% url 'app:home' %}">
-  <img src="{% static 'app/logo.png'%}" alt="Logo" class="logo"></a>
-  {% if user.is_authenticated %}
-    
-
-  <a href="javascript:{document.getElementById('logout').submit()}" class="logout-button">Logout</a>
-                <form action="{% url 'account:logout' %}" id='logout' method="POST"> 
-                    {% csrf_token %}
-                    <input type="hidden">
-                </form>
-
-                <a href="{% url 'account:profile' %}">
-  <button class="login-button">Profile</button></a>
-
-  {% else %}
-  <a href="{% url 'account:login' %}">
-  <button class="login-button">Login</button></a>
-
-  {% endif %}
+    <img src="{% static 'app/logo.png'%}" alt="Logo" class="logo">
+  </a>
+  <div style="display: flex; align-items: center; margin-left: auto;">
+    {% if user.is_authenticated %}
+      <a href="{% url 'account:profile' %}">
+        <button class="login-button profile-button" style="margin-right: -85px;">Profile</button>
+      </a>
+      <a href="javascript:{document.getElementById('logout').submit()}" class="logout-button">Logout</a>
+      <form action="{% url 'account:logout' %}" id='logout' method="POST"> 
+        {% csrf_token %}
+        <input type="hidden">
+      </form>
+    {% else %}
+      <a href="{% url 'account:login' %}">
+        <button class="login-button">Login</button>
+      </a>
+    {% endif %}
+  </div>
 </div>
 <div class="container">
   <div class="content-box">
-    <p class="description">Welcome to UniBites- A streamlined campus food ordering experience.
-Explore a world of culinary delights right at your fingertips. From your favourite local eateries to international cuisines, we've got it all. Place your orders hassle-free, track them in real-time, and indulge in a seamless food adventure. Whether it's a quick bite or a feast, we're here to make your dining dreams come true. Let's dive into a world of flavours together!"
+    <p class="description">Welcome to UniBites - A streamlined campus food ordering experience.
+      Your solution for swift campus dining at the University of Roehampton. With just 30 minutes for lunch breaks, our platform streamlines food ordering. Enjoy local favorites and global cuisines prepared within 10-15 minutes. Order seamlessly, track in real-time, and savor every bite. We're here to make your quick dining dreams a reality. Join us in maximizng your lunch break!
 
     </p>
     {% if user.is_authenticated %}
