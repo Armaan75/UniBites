@@ -1,14 +1,20 @@
-body {
+/* Reset default margin and padding for all elements */
+body, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
+}
+
+/* Set default font and background for the body */
+body {
   font-family: Arial, sans-serif;
-  background-image: url('background-image.jpg'); /* Replace with your image URL */
+  background-image: url('background-image.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: #ffffff;
 }
 
+/* Header styling */
 .header {
   display: flex;
   justify-content: space-between;
@@ -17,20 +23,30 @@ body {
 }
 
 .logo {
-  width: 150px; /* Adjust the width as needed */
+  width: 150px;
   height: auto;
 }
 
-.login-button {
+.header-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.profile-container {
+  margin-right: 20px; /* Adjust this margin as needed */
+}
+
+.profile-button {
   padding: 10px 20px;
-  background-color: transparent;
+  background-color: #2CB087;
   color: #ffffff;
   border: 2px solid #2CB087;
-  background-color: #2CB087;
   border-radius: 5px;
   font-size: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin-right: 100px;
 }
 
 .logout-button {
@@ -43,33 +59,36 @@ body {
   font-size: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  margin-left: 1050px;
 }
 
-.login-button:hover {
+.login-button:hover,
+.logout-button:hover,
+.profile-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Container and content box styling */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-  .content-box {
-    width: 600px;
-    height: 200px;
-    background-color: #2CB087;
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    margin-top: 180px;
-  }
+.content-box {
+  width: 600px;
+  height: 200px;
+  background-color: #2CB087;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 150px;
+}
 
 .cta-button {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 16px 24px; /* Adjust padding as needed */
+  margin-top: 20px; /* Add margin-top to move the button down */
   background-color: #ff8800;
   color: #ffffff;
   border: none;

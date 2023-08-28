@@ -66,7 +66,7 @@ body {
   
   .content-box {
     width: 600px;
-    height: 500px;
+    height: 720px;
     background-color: #2CB087;
     padding: 30px;
     text-align: center;
@@ -119,15 +119,22 @@ body {
   }
   
   .next-button:hover {
-    background-color: #0056b3;
+    background-color: #ff8800;
   } 
 
 .select-button {
-  background-color: #007bff;
+  background-color: #ff8800;
   color: white;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
+  margin-left: 50px;
+}
+
+.map-image {
+  width: 600px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 20px; /* Adjust the margin as needed */
 }

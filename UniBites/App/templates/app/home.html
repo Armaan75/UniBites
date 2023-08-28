@@ -16,7 +16,7 @@
   <div style="display: flex; align-items: center; margin-left: auto;">
     {% if user.is_authenticated %}
       <a href="{% url 'account:profile' %}">
-        <button class="login-button profile-button" style="margin-right: -85px;">Profile</button>
+        <button class="login-button profile-button" style="margin-right:10px;">Profile</button>
       </a>
       <a href="javascript:{document.getElementById('logout').submit()}" class="logout-button">Logout</a>
       <form action="{% url 'account:logout' %}" id='logout' method="POST"> 
@@ -33,18 +33,12 @@
 <div class="container">
   <div class="content-box">
     <p class="description">Welcome to UniBites - A streamlined campus food ordering experience.
-      Your solution for swift campus dining at the University of Roehampton. With just 30 minutes for lunch breaks, our platform streamlines food ordering. Enjoy local favorites and global cuisines prepared within 10-15 minutes. Order seamlessly, track in real-time, and savor every bite. We're here to make your quick dining dreams a reality. Join us in maximizng your lunch break!
-
+      Your solution for swift campus dining at the University of Roehampton. With just 30 minutes for lunch breaks, our platform streamlines food ordering. Enjoy local favorites and global cuisines prepared within 10-15 minutes. Order seamlessly, track in real-time, and savor every bite. We're here to make your quick dining dreams a reality. Join us in maximizing your lunch break!
     </p>
     {% if user.is_authenticated %}
-
-    <a href="{% url 'app:cafe_list' %}" class="cta-button">Order Now</a>
-
+      <a href="{% url 'app:cafe_list' %}" class="cta-button">Order Now</a>
     {% else %}
-
-    <a href="{% url 'account:login' %}" class="cta-button">Click to Order</a>
-    
-
+      <a href="{% url 'account:login' %}" class="cta-button">Click to Order</a>
     {% endif %}
   </div>
 </div>

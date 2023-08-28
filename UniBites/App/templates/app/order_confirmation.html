@@ -31,7 +31,7 @@
     <p>Cafe: {{ order.cafe.name }}</p>
 
     <p>Total Price: £{{ total_price }}</p>
-    <h3>The Confirmation Email has been sent</h3>
+    <h3>Please make payment and your order will be ready to collect.</h3>
     
     <form method="post" action="{% url 'app:make_payment' order.id %}">
       {% csrf_token %}
